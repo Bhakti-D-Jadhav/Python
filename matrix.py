@@ -1,85 +1,76 @@
 import numpy as np
 
-# take input row from user
-rows = int(input("Enter number of rows: "))
+# This function only takes matrix input
+def create_matrix(rows, cols, name):
+    matrix = []
 
-# take input column from user
-cols = int(input("Enter number of columns: "))
+    print(f"\nEnter {name} elements:")
 
-# creating matrix 1
-m1 = []
+    for i in range(rows):
+        row = []
+    
 
-print("Enter Matrix 1 elements:")
+        for j in range(cols):
+            row.append(int(input()))
 
-# matrix 1 input
-for i in range(rows):
-    row = []    #create empty row
+        matrix.append(row)
 
-    for j in range(cols):
-        x = int(input())
-        row.append(x)
+    return np.array(matrix)
 
-    m1.append(row)
 
-# empty list for matrix 2
-m2 = []
+#This function only performs operations
+def perform_operation(choice, m1, m2):
 
-print("Enter Matrix 2 elements:")
+    if choice == 1:                 #Addition
+        print("Result:")
+        print(m1 + m2)
 
-# matrix 2 input
-for i in range(rows):
-    row = []
+    elif choice == 2:                #Subtraction
+        print("Result:")
+        print(m1 - m2)
 
-    for j in range(cols):
-        x = int(input())
-        row.append(x)
+    elif choice == 3:                #Multiplication
+        print("Result:")
+        print(np.dot(m1, m2))
 
-    m2.append(row)
+    elif choice == 4:                 #Division
+        print("Result:")
+        print(m1 / m2)
 
-# convert list into matrix
-m1 = np.array(m1)
-m2 = np.array(m2)
-
-# show menu
-print("1. Addition")
-print("2. Subtraction")
-print("3. Multiplication")
-print("4. Division")
-print("5. Inverse")
-
-# take choice from user
-choice = int(input("Enter your choice: "))
-
-# addition
-if choice == 1:
-    print("Result:")
-    print(m1 + m2)
-
-# subtraction
-elif choice == 2:
-    print("Result:")
-    print(m1 - m2)
-
-# multiplication
-elif choice == 3:
-    print("Result:")
-    print(np.dot(m1, m2))
-
-# division
-elif choice == 4:
-    print("Result:")
-    print(m1 / m2)
-
-# inverse
-elif choice == 5:
-
-    # check matrix is square or not
-    if rows == cols:
+    elif choice == 5:                 #Inverse
         print("Inverse of Matrix 1:")
         print(np.linalg.inv(m1))
-    else:
-        print("Inverse not possible")
 
-# wrong choice
-else:
-    print("Invalid Choice")
+    else:
+        print("Invalid Choice")
+
+
+try:
+    # Take matrix size
+    rows = int(input("Enter number of rows: "))
+    cols = int(input("Enter number of columns: "))
+
+    # Create matrices
+    m1 = create_matrix(rows, cols, "Matrix 1")
+    m2 = create_matrix(rows, cols, "Matrix 2")
+
+    # Menu
+    print("\n1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Inverse")
+
+    choice = int(input("Enter your choice: "))
+
+    # New operations can be added later
+    perform_operation(choice, m1, m2)
+
+except ValueError:
+    print("Please enter valid numbers.")
+
+except np.linalg.LinAlgError:
+    print("Inverse not possible for this matrix.")
+
+except ZeroDivisionError:
+    print("Division by zero is not allowed.")
