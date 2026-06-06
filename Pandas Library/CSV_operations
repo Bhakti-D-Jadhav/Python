@@ -1,0 +1,45 @@
+import pandas as pd         #imports pandas Library
+
+df = pd.read_csv("Sample.csv")
+
+print(df)
+print()
+
+print("First 5 Rows of the data frame:")
+print()
+print(df.head())        #prints the first 5 rows of the data frame
+print()
+print()
+
+print("Last 5 rows of the data frame:")
+print()
+print(df.tail())        #prints the last 5 rows of the data frame
+print()
+
+print("Information about the data frame:")
+print()
+print(df.info())        #prints the summary of the data frame
+print()
+print()
+
+print("Statistical summary of the data frame:")
+print()
+
+print(df.describe())    #prints the statistical summary of the data frame
+print()
+print()
+
+print("Data types of the columns:")
+print()
+print(df.dtypes)        #prints the data types of the columns
+print()
+
+print()
+print("Shape of the data frame:")
+print(df.shape)         #prints the shape of the data frame
+print()
+
+print("Column names of the data frame:")
+print()
+print(df.columns)    #prints the column names of the data frame
+print()
