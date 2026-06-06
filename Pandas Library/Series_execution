@@ -1,0 +1,16 @@
+import pandas as pd         #imports pandas Library
+
+#Crating a series with the help of lost and index
+std_data = pd.Series([101,'Bhakti',1,'A'], index=["id" , "Name" , "Roll no" , "Division"] )   
+
+print(std_data)     #Prints the series
+print()
+print("Name: " + std_data["Name"])     #Prints the value of index "Name" in series
+print()
+print()
+
+#Creating a series with the help of dictionary
+std_data2 = pd.Series({"id":102, "Name":"Shreyash Jadhav", "Roll_no":10, "Division":"A"})
+print(std_data2)
+
+
