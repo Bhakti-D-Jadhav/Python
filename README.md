@@ -58,16 +58,7 @@ The program provides:
 8. Highest scorer from each gender.
 9. Top 10 students based on percentage.
 10. Processed report exported as `student_data_report.csv`.
-
-## Project Structure
-
-Project Folder
-│
-├── Students_Performance.csv
-├── student_analysis.py
-├── student_data_report.csv
-└── README.md
-
+    
 
 ## Learning Outcomes
 
