@@ -1,0 +1,85 @@
+import pandas as pd
+
+# Reads data from csv
+student_data = pd.read_csv("Students_Performance.csv")
+
+# Calculates Total score
+student_data["Total score"] = (
+    student_data["math score"] + student_data["reading score"] + student_data["writing score"]
+)
+
+# Calculate Percentage
+student_data["Percentage"] = (student_data["Total score"] / 300) * 100
+
+print("Student Data :")
+print(student_data)
+print()
+
+# Find the topper
+top_performer = student_data.loc[student_data["Percentage"].idxmax()]
+
+print("Top Performer:")
+print(top_performer)
+print()
+
+# Find the bottom performer
+bottom_performer = student_data.loc[student_data["Percentage"].idxmin()]
+
+print("Bottom Performer:")
+print(bottom_performer)
+print()
+
+# Find the avg score for each subject
+avg_score = student_data[
+    ["math score", "reading score", "writing score"]].mean()
+
+print("Average Score:")
+print(avg_score)
+print()
+
+# Find Lowest score for each subject
+lowest_score = student_data[
+    ["math score", "reading score", "writing score"]].min()
+
+print("Lowest Score:")
+print(lowest_score)
+print()
+
+# Find Highest score for each subject
+highest_score = student_data[
+    ["math score", "reading score", "writing score"]].max()
+
+print("Highest Score:")
+print(highest_score)
+print()
+
+# Total students by gender
+print("Total Students by Gender:")
+print(student_data["gender"].value_counts())
+print()
+
+# Average percentage by gender
+average_percentage = student_data.groupby("gender")["Percentage"].mean()
+
+print("Average Percentage by Gender:")
+print(average_percentage)
+print()
+
+# Highest scorer from each gender
+gender_highest_score = student_data.loc[student_data.groupby("gender")["Percentage"].idxmax()]
+
+print("Highest Scorer From Each Gender:")
+print(gender_highest_score)
+print()
+
+# Top 10 students based on percentage
+top_10 = student_data.sort_values(by="Percentage",ascending=False).head(10)
+
+print("Top 10 Students:")
+print(top_10)
+print()
+
+# Export processed data to CSV
+student_data.to_csv("student_data_report.csv",index=False)
+
+print("File saved successfully!")
