@@ -38,16 +38,14 @@ print(avg_score)
 print()
 
 # Find Lowest score for each subject
-lowest_score = student_data[
-    ["math score", "reading score", "writing score"]].min()
+lowest_score = student_data[["math score", "reading score", "writing score"]].min()
 
 print("Lowest Score:")
 print(lowest_score)
 print()
 
 # Find Highest score for each subject
-highest_score = student_data[
-    ["math score", "reading score", "writing score"]].max()
+highest_score = student_data[["math score", "reading score", "writing score"]].max()
 
 print("Highest Score:")
 print(highest_score)
