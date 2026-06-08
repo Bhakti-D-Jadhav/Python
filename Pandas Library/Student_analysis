@@ -19,13 +19,13 @@ print()
 top_performer = student_data.loc[student_data["Percentage"].idxmax()]
 
 print("Top Performer:")
-print(top_performer)
+print(top_performer)        #Prints the value of top performer
 print()
 
 # Find the bottom performer
 bottom_performer = student_data.loc[student_data["Percentage"].idxmin()]
 
-print("Bottom Performer:")
+print("Bottom Performer:")      # #Prints the value of top perforer
 print(bottom_performer)
 print()
 
